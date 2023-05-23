@@ -21,7 +21,6 @@ class CategoryController extends Controller
             $category->save();
 
             return redirect('/')->with('success', 'Categoría creada exitosamente');
-
         } catch (\Exception $e) {
             return response()->json([
                 'success' => false,
@@ -30,5 +29,23 @@ class CategoryController extends Controller
         }
     }
 
+    public function updateView($id){
+        return view('create-category', ['category', Category::find($id)]);
+    }
 
+    public function edit(Request $request, $id)
+    {   
+        $data = array(
+            'name' => $request->input('category_name')
+        );
+    
+        $category = Category::find($id);
+        $category->update($data);
+        return redirect('/')->with('success', 'Categoría creada exitosamente');
+
+    }
+
+    public function delete(){
+        
+    }
 }

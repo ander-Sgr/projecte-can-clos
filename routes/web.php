@@ -21,4 +21,6 @@ Route::controller(HomeController::class)->group(function(){
 
 Route::controller(CategoryController::class)->group(function(){
     Route::post('/', 'store');
+    Route::put('/edit/{id}', 'edit');
+    Route::delete();
 });
