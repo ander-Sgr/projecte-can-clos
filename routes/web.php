@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\BookController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\ClothesController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 
@@ -22,5 +24,14 @@ Route::controller(HomeController::class)->group(function(){
 Route::controller(CategoryController::class)->group(function(){
     Route::post('/', 'store');
     Route::put('/edit/{id}', 'edit');
-    Route::delete();
+    Route::delete('/delete/{id}', 'delete');
+});
+
+
+Route::controller(ClothesController::class)->group(function(){
+    Route::get('/products/{id}', 'viewProductsClothes');
+    Route::get('/product/{id}', 'getProductData');
+    Route::post('/createClothe', 'store');
+    Route::put('/editProductClothe/{id}', 'edit');
+    Route::delete('/deleteProductClothe/{id}', 'delete');
 });

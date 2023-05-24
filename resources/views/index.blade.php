@@ -15,17 +15,12 @@
                     @foreach ($categories as $category)
                         <tr>
                             <td class="py-2 px-4 border-b">{{ $category->name }}</td>
-                            <td class="py-2 px-4 border-b text-right">
+                            <td class="py-5 px-4 border-b text-right">
                                 <a href="#" class="bg-blue-500 text-white px-4 py-2 rounded-md mr-2 edit-category-link"
                                     data-category-id="{{ $category->id }}" title="Editar nombre de la categoria">Editar</a>
-
-                                <form action="" method="POST" class="inline-block">
-                                    @csrf
-                                    @method('DELETE')
-                                    <button type="submit" class="bg-red-500 text-white px-4 py-2 rounded-md"
-                                        title="Eliminar categoria">Eliminar</button>
-                                </form>
-                                <a href="" class="bg-green-500 text-white px-4 py-2 rounded-md ml-2"
+                                <a href="#" class="bg-red-500 text-white px-4 py-2 rounded-md delete-category-link"
+                                    data-category-id="{{ $category->id }}" title="Eliminar categoria">Eliminar</a>
+                                <a href="{{ url('/products/'.$category->id) }}" class="bg-green-500 text-white px-4 py-2 rounded-md ml-2"
                                     title="Productos de la categoria">Ver Productos</a>
                             </td>
                         </tr>
@@ -37,4 +32,6 @@
     @include('create-category')
 @endsection
 @include('edit-category-form')
+@include('delete-category')
 <script src="{{ asset('js/popupEdit.js') }}"></script>
+<script src="{{ asset('js/popupDelete.js') }}"></script>

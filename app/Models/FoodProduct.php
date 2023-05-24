@@ -5,15 +5,14 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class StockMovement extends Model
+class FoodProduct extends Model
 {
     use HasFactory;
 
-    protected $table = 'stocks_control';
+    protected $table = 'foods_product';
 
     public function product()
     {
         return $this->belongsTo(Product::class);
     }
-
 }

@@ -11,9 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('ages', function (Blueprint $table) {
+        Schema::create('stocks_control', function (Blueprint $table) {
             $table->id();
-            $table->string('range');
+            $table->foreignId('product_id')
+                ->constrained('products')
+                ->onDelete('cascade')
+                ->onUpdate('cascade');
+            $table->integer('cantidad');
+            $table->enum('movement_type', ['entrada', 'salida']);
             $table->timestamps();
         });
     }
@@ -23,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('ages');
+        Schema::dropIfExists('stocks_control');
     }
 };

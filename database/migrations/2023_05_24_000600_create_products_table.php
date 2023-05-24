@@ -15,9 +15,10 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->foreignId('category_id')
-                ->constrained('categories')
-                ->onDelete('cascade')
-                ->onUpdate('cascade');
+            ->constrained('categories')
+            ->onDelete('cascade')
+            ->onUpdate('cascade');
+            $table->integer('cantidad');
             $table->timestamps();
         });
     }

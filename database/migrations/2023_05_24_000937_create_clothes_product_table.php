@@ -11,17 +11,15 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('stockmovements', function (Blueprint $table) {
+        Schema::create('clothes_product', function (Blueprint $table) {
             $table->id();
-            $table->integer('quantity');
-            $table->enum('movement_type', [
-                'entrada',
-                'salida'
-            ]);
             $table->foreignId('product_id')
                 ->constrained('products')
                 ->onDelete('cascade')
                 ->onUpdate('cascade');
+            $table->enum('typeClothe', ['infantil', 'adulto']);
+            $table->enum('gender', ['masculino', 'femenino']);
+            $table->enum('rangeAge', ['0-6 meses', '6-12 meses', '1-5', '5-10'])->nullable();
             $table->timestamps();
         });
     }
@@ -31,6 +29,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('stockmovements');
+        Schema::dropIfExists('clothes_product');
     }
 };

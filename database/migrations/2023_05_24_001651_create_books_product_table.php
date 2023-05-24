@@ -11,9 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('booktypes', function (Blueprint $table) {
+        Schema::create('books_product', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
+            $table->foreignId('product_id')
+                ->constrained('products')
+                ->onDelete('cascade')
+                ->onUpdate('cascade');
+            $table->enum('typeBook', ['infantil', 'adulto']);
             $table->timestamps();
         });
     }
@@ -23,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('booktypes');
+        Schema::dropIfExists('books_product');
     }
 };
