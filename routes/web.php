@@ -38,7 +38,10 @@ Route::controller(ClothesController::class)->group(function(){
 });
 
 Route::controller(BookController::class)->group(function(){
+    Route::get('/productBook/{id}', 'getBookData');
     Route::post('/createBook', 'store');
+    Route::put('/editProductBook/{id}', 'edit');
+    Route::delete('/deleteProductBook/{id}', 'delete');
 });
 
 Route::controller(ProductController::class)->group(function(){

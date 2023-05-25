@@ -63,8 +63,9 @@ document.addEventListener('DOMContentLoaded', function () {
                     }
                     cantidadProductInput.value = productData.cantidad
                     // genderSelect.value = productData.gender;
-                });
-
+                }).catch(error => {console.error(`Error al obtener los datos ${error}`)});
+                
+            
 
 
             modal.classList.add('block');

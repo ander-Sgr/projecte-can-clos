@@ -49,7 +49,7 @@
                                     <a href="#"
                                         class="bg-blue-500 text-white px-4 py-2 rounded-md mr-2 edit-product-book-link"
                                         data-productid="{{ $product->book->product_id }}"
-                                        data-clotheid="{{ $product->book->id }}"
+                                        data-bookId="{{ $product->book->id }}"
                                         title="Editar nombre de la categoría">Editar</a>
                                     <a href="#"
                                         class="bg-red-500 text-white px-4 py-2 rounded-md delete-product-book-link"
@@ -87,6 +87,10 @@
         <script src="{{ asset('js/modalDeleteClothe.js') }}"></script>
     @elseif ($categoria->name === 'Libros')
         @include('products.books.create-book')
+        @include('products.books.edit-book')
+        @include('products.books.delete-book')
         <script src="{{ asset('js/bookModals/modalCreate.js') }}"></script>
+        <script src="{{ asset('js/bookModals/modalEdit.js') }}"></script>
+        <script src="{{ asset('js/bookModals/modalDelete.js') }}"></script>
     @endif
 @endsection
