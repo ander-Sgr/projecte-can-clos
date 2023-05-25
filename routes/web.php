@@ -3,8 +3,10 @@
 use App\Http\Controllers\BookController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ClothesController;
+use App\Http\Controllers\FoodController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProductController;
+use App\Models\FoodProduct;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -42,6 +44,12 @@ Route::controller(BookController::class)->group(function(){
     Route::post('/createBook', 'store');
     Route::put('/editProductBook/{id}', 'edit');
     Route::delete('/deleteProductBook/{id}', 'delete');
+});
+
+Route::controller(FoodController::class)->group(function(){
+    Route::get('/productFood/{id}', 'getDataFood');
+    Route::post('/createFood', 'store');
+    Route::put('/editProductFood/{id}', 'edit');
 });
 
 Route::controller(ProductController::class)->group(function(){

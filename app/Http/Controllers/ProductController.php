@@ -10,7 +10,6 @@ class ProductController extends Controller
 {
     public function show($id)
     {
-        
         $categoria = Category::find($id);
         $productos = Product::where('category_id', $id)->get();
     
