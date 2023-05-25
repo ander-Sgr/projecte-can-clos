@@ -2,19 +2,18 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use App\Models\Product;
 use Illuminate\Http\Request;
 
 class ProductController extends Controller
 {
-    public function showProductsByCategory($relationName, $categoryId)
+    public function show($id)
     {
-        // Obtener los productos que pertenecen a la categoría especificada
-        $products = Product::whereHas($relationName, function ($query) use ($categoryId) {
-            $query->where('category_id', $categoryId);
-        })->get();
+        
+        $categoria = Category::find($id);
+        $productos = Product::where('category_id', $id)->get();
     
-        // Retornar la vista con los productos y la categoría
-        return view('products.view-products', ['products' => $products, 'id' => $categoryId]);
+        return view('products.view-products', compact('categoria', 'productos', 'id'));
     }
 }

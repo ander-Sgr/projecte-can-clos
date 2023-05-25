@@ -9,15 +9,6 @@ use Illuminate\Support\Arr;
 
 class ClothesController extends Controller
 {
-    public function viewProductsClothes($id)
-    {
-        $clothe = Product::whereHas('clothes', function ($query) use ($id) {
-            $query->where('category_id', $id);
-        })->with('clothes')->get();
-
-
-        return view('products.clothes.view-products', ['clothe' => $clothe, 'id' => $id]);
-    }
 
     public function store(Request $request)
     {

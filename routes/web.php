@@ -4,6 +4,7 @@ use App\Http\Controllers\BookController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ClothesController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -29,9 +30,17 @@ Route::controller(CategoryController::class)->group(function(){
 
 
 Route::controller(ClothesController::class)->group(function(){
-    Route::get('/products/{id}', 'viewProductsClothes');
+  //  Route::get('/products/{id}', 'viewProductsClothes');
     Route::get('/product/{id}', 'getProductData');
     Route::post('/createClothe', 'store');
     Route::put('/editProductClothe/{id}', 'edit');
     Route::delete('/deleteProductClothe/{id}', 'delete');
+});
+
+Route::controller(BookController::class)->group(function(){
+    Route::post('/createBook', 'store');
+});
+
+Route::controller(ProductController::class)->group(function(){
+    Route::get('/products/{id}','show');
 });
