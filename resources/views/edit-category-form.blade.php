@@ -8,12 +8,12 @@
                 <form id="edit-category-form" data-url="{{ url('edit/') }}" method="POST">
                     @csrf
                     @method('PUT')
-
+                    @if (!$categories->isEmpty())
                     <div class="mb-4">
                         <label for="category_name" class="block text-sm font-medium text-gray-700">Nuevo nombre de categoría:</label>
                         <input value="{{ $category->name }}" type="text" id="category_name" name="category_name" class="mt-1 border border-gray-300 rounded-md px-3 py-2 w-full" required>
                     </div>
-
+                    @endif
                     <div class="text-right">
                         <button class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-md">Guardar cambios</button>
                         <button id="cancel-edit" type="button" class="bg-gray-200 hover:bg-gray-300 text-gray-700 px-4 py-2 rounded-md ml-2">Cancelar</button>
