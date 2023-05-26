@@ -132,8 +132,9 @@
     @else
         @include('products.create-product')
         @include('products.edit-product')
+        @include('products.delete-product')
         <script src="{{ asset('js/productModals/modalCreate.js') }}"></script>
         <script src="{{ asset('js/productModals/modalEdit.js') }}"></script>
-
+        <script src="{{ asset('js/productModals/modalDelete.js') }}"></script>
     @endif
 @endsection

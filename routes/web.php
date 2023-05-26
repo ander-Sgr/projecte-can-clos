@@ -58,4 +58,5 @@ Route::controller(ProductController::class)->group(function(){
     Route::get('/product/{id}', 'getProductData');
     Route::put('/editProduct/{id}', 'edit');
     Route::post('/createProduct', 'store');
+    Route::delete('/deleteProduct/{id}', 'delete');
 });

@@ -7,9 +7,9 @@ document.addEventListener('DOMContentLoaded', function () {
     deleteLinks.forEach(function (link) {
         link.addEventListener('click', function (e) {
             e.preventDefault();
-            let foodId = this.dataset.productid;
-            console.log(foodId)
-            let url = deleteForm.dataset.url + '/' + foodId; // Construir la URL
+            let productId = this.dataset.productid;
+            console.log(productId)
+            let url = deleteForm.dataset.url + '/' + productId; // Construir la URL
             console.log(url)
             deleteForm.action = url
             // Mostrar el modal de confirmación
