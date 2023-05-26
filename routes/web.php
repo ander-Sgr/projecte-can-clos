@@ -33,7 +33,7 @@ Route::controller(CategoryController::class)->group(function(){
 
 Route::controller(ClothesController::class)->group(function(){
   //  Route::get('/products/{id}', 'viewProductsClothes');
-    Route::get('/product/{id}', 'getProductData');
+    Route::get('/productClotheData/{id}', 'getClotheData');
     Route::post('/createClothe', 'store');
     Route::put('/editProductClothe/{id}', 'edit');
     Route::delete('/deleteProductClothe/{id}', 'delete');
@@ -50,8 +50,12 @@ Route::controller(FoodController::class)->group(function(){
     Route::get('/productFood/{id}', 'getDataFood');
     Route::post('/createFood', 'store');
     Route::put('/editProductFood/{id}', 'edit');
+    Route::delete('/deleteProductFood/{id}', 'delete');
 });
 
 Route::controller(ProductController::class)->group(function(){
     Route::get('/products/{id}','show');
+    Route::get('/product/{id}', 'getProductData');
+    Route::put('/editProduct/{id}', 'edit');
+    Route::post('/createProduct', 'store');
 });

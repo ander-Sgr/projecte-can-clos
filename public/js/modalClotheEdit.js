@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', function () {
             modalForm.action = url
             console.log(url)
             console.log(productId)
-            fetch(`/product/${clotheId}`)
+            fetch(`/productClotheData/${clotheId}`)
                 .then(response => response.json())
                 .then(productData => {
                     let nameInput = document.getElementById('name-product');

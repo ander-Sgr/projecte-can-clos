@@ -31,7 +31,7 @@ class FoodController extends Controller
     }
 
     public function edit(Request $request, $id)
-    {  
+    {
         $data = array(
             'name' => $request->input('name-edit-food'),
             'typeFood' => $request->input('typeFood-edit-food'),
@@ -49,7 +49,6 @@ class FoodController extends Controller
         }
 
         return redirect()->back()->with('success', 'Producto actualizado correctamente.');
-
     }
 
     public function getDataFood($id)
@@ -63,11 +62,25 @@ class FoodController extends Controller
                 'name' => $foodProduct->product->name,
                 'typeFood' => $foodProduct->typeFood,
                 'cantidad' => $foodProduct->product->cantidad
-            );  
+            );
 
             return response()->json($productData);
         }
 
         return response()->json(['error' => 'Producto alimentario no encontrado'], 404);
+    }
+
+    public function delete($id)
+    {
+        $product = Product::find($id);
+
+        if ($product) {
+            if ($product->food) {
+                $product->food->delete();
+            }
+            $product->delete();
+            return redirect()->back()->with('success', 'Producto eliminado correctamente.');
+        }
+        return redirect()->back()->with('error', 'El producto no existe.');
     }
 }

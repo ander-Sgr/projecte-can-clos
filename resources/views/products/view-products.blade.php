@@ -18,6 +18,8 @@
                         @elseif ($categoria->name === 'Alimentacion')
                             <th class="py-3 px-1 border-b text-left">Nombre Producto</th>
                             <th class="py-3 px-1 border-b text-left">Tipo de alimento</th>
+                        @else
+                            <th class="py-3 px-1 border-b text-left">Nombre Producto</th>
                         @endif
                         <th class="py-3 px-1 border-b text-left">Stock Disponible</th>
                         <th class="py-3 px-1 border-b text-left">Fecha de entrada y hora</th>
@@ -72,6 +74,19 @@
                                         class="bg-red-500 text-white px-4 py-2 rounded-md delete-product-food-link"
                                         data-productid="{{ $product->id }}" title="Eliminar categoria">Eliminar</a>
                                 </td>
+                            @else
+                                <td class="py-3 px-1 border-b text-left">{{ $product->cantidad }}</td>
+                                <td class="py-3 px-1 border-b text-left">{{ $product->created_at }}</td>
+                                <td class="py-3 px-4 border-b text-left">
+                                    <a href="#"
+                                        class="bg-blue-500 text-white px-4 py-2 rounded-md mr-2 edit-product-link"
+                                        data-productid="{{ $product->id }}"
+        
+                                        title="Editar nombre de la categoría">Editar</a>
+                                    <a href="#"
+                                        class="bg-red-500 text-white px-4 py-2 rounded-md delete-product-link"
+                                        data-productid="{{ $product->id }}" title="Eliminar categoria">Eliminar</a>
+                                </td>
                             @endif
                         </tr>
                     @endforeach
@@ -110,7 +125,15 @@
     @elseif ($categoria->name === 'Alimentacion')
         @include('products.food.create-food')
         @include('products.food.edit-food')
+        @include('products.food.delete-food')
         <script src="{{ asset('js/foodModals/modalCreate.js') }}"></script>
         <script src="{{ asset('js/foodModals/modalEdit.js') }}"></script>
+        <script src="{{ asset('js/foodModals/modalDelete.js') }}"></script>
+    @else
+        @include('products.create-product')
+        @include('products.edit-product')
+        <script src="{{ asset('js/productModals/modalCreate.js') }}"></script>
+        <script src="{{ asset('js/productModals/modalEdit.js') }}"></script>
+
     @endif
 @endsection

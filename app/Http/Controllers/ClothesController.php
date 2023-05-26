@@ -62,7 +62,7 @@ class ClothesController extends Controller
         return redirect()->back()->with('success', 'Producto actualizado correctamente.');
     }
 
-    public function getProductData($id)
+    public function getClotheData($id)
     {
         $clothesProduct = ClothesProduct::find($id);
 

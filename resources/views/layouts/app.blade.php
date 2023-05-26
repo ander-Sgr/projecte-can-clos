@@ -21,35 +21,6 @@
                 <a class="text-sm font-bold leading-relaxed inline-block mr-4 py-2 whitespace-nowrap uppercase text-white"
                 href="{{ url('/') }}">CONTROL STOCK CAN CLOS</a>
             </div>
-            <div class="lg:flex flex-grow items-center bg-white lg:bg-opacity-0 lg:shadow-none hidden bg-blueGray-800"
-                id="example-collapse-navbar">
-                <ul class="flex flex-col lg:flex-row list-none lg:ml-auto items-center">
-                    @auth
-                    <li class="relative group">
-                        <a href="{{ url('/viewCreatePost') }}" class="mr-4 bg-white flex items-center justify-center h-full px-3 py-2 text-gray-700 hover:bg-gray-200 transition duration-300">
-                            <span class="text-sm font-medium">Crear un Post</span>
-                        </a>
-                    </li>
-                    <li class="relative group">
-                        <a href="{{ url('/myPosts') }}" class="mr-4 bg-white flex items-center justify-center h-full px-3 py-2 text-gray-700 hover:bg-gray-200 transition duration-300">
-                            <span class="text-sm font-medium">Ver mis posts</span>
-                        </a>
-                    </li>
-                    @else 
-                    <li class="inline-block relative">
-                        <a class="lg:text-white lg:hover:text-blueGray-200 text-blueGray-700 px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold"
-                            href="{{ url('/login') }}">
-                        </a>
-                    </li>
-                    <li class="flex items-center">
-                        <a class="bg-white text-blueGray-700 active:bg-blueGray-50 text-xs font-bold uppercase px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none lg:mr-1 lg:mb-0 ml-3 mb-3 ease-linear transition-all duration-150"
-                            href="{{ url('/register') }}">
-                            
-                        </a>
-                    </li> 
-                    @endauth
-                </ul>
-            </div>
         </div>
     </nav>
     @yield('content')
